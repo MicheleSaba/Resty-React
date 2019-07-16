@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './components/header';
 import Form from './components/form';
-import ApiProvider from './components/context';
+import { ApiContext } from './components/context';
 import './App.css';
 
 function App() {
+  const api = useContext(ApiContext);
+  console.log('api context', api);
+
   return (
-    <ApiProvider>
-      <div className="App">
-        <Header />
-        <Form />
-      </div>
-    </ApiProvider>
+    <div className="App">
+      <Header />
+      <Form handleRequest={api.handleRequest} />
+    </div>
   );
 }
 

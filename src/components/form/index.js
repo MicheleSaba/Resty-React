@@ -10,17 +10,22 @@ export default class Form extends React.Component {
     };
   }
 
-  handleChange = method => {
+  // handleChange() {
+    // This would require bind() or e => this.handleChange(e)
+  //}
+
+  handleChange = event => {
+    const { name, value } = event.target;
     this.setState({
-      method: method,
+      [name]: value,
     });
-    console.log(this.state.method);
   };
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
-
+    this.props.handleRequest(this.state);
   }
+
   render() {
     return (
       <section>
@@ -28,13 +33,13 @@ export default class Form extends React.Component {
           <input
             name="url"
             placeholder="www.something.com"
-            onChange={method => this.handleChange(method)}
+            onChange={this.handleChange}
           />
           <input
             type="radio"
             value="get"
             name="method"
-            onChange={method => this.handleChange(method)}
+            onChange={e => this.handleChange(e)}
           />
           <input
             type="radio"
@@ -54,7 +59,9 @@ export default class Form extends React.Component {
             name="method"
             onChange={method => this.handleChange(method)}
           />
-          <input type="radio" name="method" value="delete" />
+          <input type="radio" name="method" value="delete"
+            onChange={this.handleChange}
+            />
           <input type="submit" value="Submit" />
         </form>
       </section>
