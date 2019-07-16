@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-export const LoginContext = React.createContext();
+export const ApiContext = React.createContext();
 
 class ApiProvider extends React.Component {
   constructor(props) {
@@ -20,9 +20,9 @@ class ApiProvider extends React.Component {
 
   render() {
     return (
-      <LoginContext.Provider value={this.state}>
+      <ApiContext.Provider value={this.state}>
         {this.props.children}
-      </LoginContext.Provider>
+      </ApiContext.Provider>
     );
   }
 }
