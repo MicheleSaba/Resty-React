@@ -1,10 +1,11 @@
-import React from 'react'; 
-
-
+import React from 'react';
+import './style.css';
 
 function Header() {
   return (
-    <p>I'm the header </p>
-  )
+    <header>
+      <h1>React-Resty </h1>
+    </header>
+  );
 }
-export default Header; 
+export default Header;

@@ -1,0 +1,17 @@
+section {
+  background-color: #222;
+  margin-top: 70px;
+}
+input {
+  width: 500px;
+  height: 40px;
+  border-radius: 2px; 
+  margin: 10px; 
+  border: none; 
+  outline: none; 
+  text-align: center;
+  font-size: 18px; 
+}
+form {
+  width: 400px; 
+}
