@@ -21,8 +21,9 @@ export default class Form extends React.Component {
     });
   };
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
+    this.props.handleRequest(this.state);
   }
 
   render() {
@@ -58,7 +59,9 @@ export default class Form extends React.Component {
             name="method"
             onChange={method => this.handleChange(method)}
           />
-          <input type="radio" name="method" value="delete" />
+          <input type="radio" name="method" value="delete"
+            onChange={this.handleChange}
+            />
           <input type="submit" value="Submit" />
         </form>
       </section>
